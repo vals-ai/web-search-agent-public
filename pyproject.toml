@@ -1,0 +1,44 @@
+[project]
+name = "web-search-agent"
+authors = [{ name = "Vals AI, Inc.", email = "contact@vals.ai" }]
+version = "0.1.0"
+description = "The Vals AI Web Search Index agent: one research agent with a swappable web search tool"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12"
+dependencies = [
+    "model-library==0.1.33",
+    "backoff>=2.2.1",
+    "pydantic>=2.0",
+    "python-dotenv>=1.2.2",
+    "simpleeval>=1.0.7",
+    "tavily-python>=0.7.26",
+]
+
+[project.scripts]
+web-search-agent = "web_search_agent.run:main_sync"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["web_search_agent"]
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.40.1",
+    "ruff>=0.16.8",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.basedpyright]
+typeCheckingMode = "basic"
+include = ["web_search_agent", "tests"]
