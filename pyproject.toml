@@ -42,3 +42,6 @@ ignore = ["E501"]
 [tool.basedpyright]
 typeCheckingMode = "basic"
 include = ["web_search_agent", "tests"]
+
+[tool.uv]
+exclude-newer = "7 days"
