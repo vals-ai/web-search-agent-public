@@ -7,7 +7,7 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.12"
 dependencies = [
-    "model-library==0.1.33",
+    "model-library>=0.1.41",
     "backoff>=2.2.1",
     "pydantic>=2.0",
     "python-dotenv>=1.2.2",
